@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <title>Homepage</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="favicon.png" rel="shortcut icon" type="image/x-icon" />
+</head>
+<body>
+    <div id="search">
+        <input id="search-field" type="text" name="search-field" onkeypress="return search(event)"/>
+    </div>
+    <div class="container">
+        <div id="clock"></div>
+        <div class="welcome-container">
+            <div class="row">
+                <div id="welcome-description"class="inline"></div>
+                <div class="inline">Welcome back</div>
+                <div id="temp" class="inline"></div>
+            </div>
+        </div>
+        <div class="bookmark-container">
+            <div class="bookmark-set">
+                <div class="bookmark-title">Feed</div>
+                <div class="bookmark-inner-container">
+                    <a class="bookmark" href="https://youtube.com" target="_blank">Youtube</a>
+                    <a class="bookmark" href="https://www.twitter.com" target="_blank">Twitter</a>
+                    <a class="bookmark" href="https://discordapp.com/login" target="_blank">Discord</a>
+                    <a class="bookmark" href="https://www.google.com/" target="_blank">Google</a>
+                </div>
+            </div>
+            <div class="bookmark-set">
+            <div class="bookmark-title">Utility</div>
+                <div class="bookmark-inner-container">
+                    <a class="bookmark" href="https://yesent.freeboxos.fr:9354" target="_blank">FreeboxOS</a>
+                    <a class="bookmark" href="192.168.0.1" target="_blank">Archer</a>
+                    <a class="bookmark" href="https://www.translate.google.com/" target="_blank">Google trad</a>
+                    <a class="bookmark" href="https://mail41.lwspanel.com/webmail/" target="_blank">Kronos mail</a>
+                </div>
+            </div>
+            <div class="bookmark-set">
+                <div class="bookmark-title">Misc</div>
+                <div class="bookmark-inner-container">
+                    <a class="bookmark" href="https://0240650b.index-education.net/pronote/eleve.html" target="_blank">Pronote</a>
+                    <a class="bookmark" href="https://www.icloud.com/mail" target="_blank">Icloud</a>
+                    <a class="bookmark" href="https://mail.google.com/" target="_blank">Gmail</a>
+					<a class="bookmark" href="https://chrome.google.com/webstore/category/extensions?hl=fr" target="_blank">Webstore</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        // Get current time and format
+        function getTime() {
+            let date = new Date(),
+                min = date.getMinutes(),
+                sec = date.getSeconds(),
+                hour = date.getHours();
+
+            return "" + 
+                (hour < 10 ? ("0" + hour) : hour) + ":" + 
+                (min < 10 ? ("0" + min) : min) + ":" + 
+                (sec < 10 ? ("0" + sec) : sec);
+        }
+
+        window.onload = () => {
+            // Set up the clock
+            document.getElementById("clock").innerHTML = getTime();
+            // Set clock interval to tick clock
+            setInterval( () => {
+                document.getElementById("clock").innerHTML = getTime();
+            },100);
+        }
+    </script>
+</body>
+</html>
